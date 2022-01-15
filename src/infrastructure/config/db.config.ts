@@ -1,7 +1,7 @@
-import * as dotenv from 'dotenv';
+import * as DotEnv from 'dotenv';
 import { DBConfig } from '../db/mongo.interface';
 
-dotenv.config();
+DotEnv.config();
 
 const config = {
   host: process.env.DB_HOST,
