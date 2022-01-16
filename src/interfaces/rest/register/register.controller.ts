@@ -12,11 +12,11 @@ import {
   DUPLICATE_USER_EMAIL,
   USER_CREATED,
 } from 'src/infrastructure/constants/message.constant';
-import { IResponse } from '../response/response.interface';
+import { IResponse } from '../../response/response.interface';
 import {
   RegisterResponseTypeError,
   RegisterResponseTypeSuccess,
-} from '../response/types/register.interface';
+} from '../../response/types/register.type';
 import { RegisterDto } from './register.dto';
 
 @ApiTags('users')

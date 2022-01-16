@@ -4,11 +4,11 @@ import { User } from './user.schema';
 
 export type TodoDocument = Todo & Mongoose.Document;
 
-@Schema()
+@Schema({ timestamps: true, id: true })
 export class Todo {
   @Prop({
     type: Mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: User.name,
     required: true,
   })
   owner: User;
@@ -23,20 +23,10 @@ export class Todo {
   })
   description: string;
 
-  @Prop()
+  @Prop({
+    default: null,
+  })
   done_at: Date;
-
-  @Prop({
-    required: true,
-    default: Date.now(),
-  })
-  created_at: Date;
-
-  @Prop({
-    required: true,
-    default: Date.now(),
-  })
-  updated_at: Date;
 }
 
 export const TodoSchema = SchemaFactory.createForClass(Todo);
