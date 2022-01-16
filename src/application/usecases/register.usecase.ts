@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { User } from 'src/infrastructure/db/schemas/user.schema';
-import { UserService } from 'src/infrastructure/db/services/user/user.service';
+import { UserService } from 'src/infrastructure/db/services/user.service';
 import { HashService } from 'src/infrastructure/security/hashing/hash.service';
 import { IRegister } from './interfaces/register.interface';
 

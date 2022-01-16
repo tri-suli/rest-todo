@@ -1,4 +1,4 @@
-import { IResponse } from 'src/interfaces/rest/response/response.interface';
+import { IResponse } from 'src/interfaces/response/response.interface';
 
 export type ResponseEntityConstructorType<TD, TE> = {
   data: TD;
