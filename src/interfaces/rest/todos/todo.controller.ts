@@ -7,6 +7,7 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { TodoUseCase } from 'src/application/usecases/todo.usecase';
@@ -17,12 +18,14 @@ import {
   USER_NOT_FOUND,
 } from 'src/infrastructure/constants/message.constant';
 import { Todo, TodoDocument } from 'src/infrastructure/db/schemas/todo.schema';
+import { JwtAuthGuard } from 'src/infrastructure/security/auth/jwt.guard';
 import { IResponse } from 'src/interfaces/response/response.interface';
 import { ResponseCreateTodoTypeError } from 'src/interfaces/response/types/todo.type';
 import { CreateTodoDto } from './dto/create.dto';
 import { UpdateTodoDto } from './dto/update.dto';
 
 @ApiTags('todos')
+@UseGuards(JwtAuthGuard)
 @Controller('todos')
 export class TodoController {
   constructor(private usecase: TodoUseCase) {}

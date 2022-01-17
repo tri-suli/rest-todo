@@ -1,10 +1,14 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Transform } from 'class-transformer';
+import { Document, ObjectId } from 'mongoose';
 
 export type UserDocument = User & Document;
 
-@Schema({ timestamps: true, id: true })
+@Schema({ timestamps: true })
 export class User {
+  @Transform(({ value }) => value.toString())
+  _id: ObjectId;
+
   @Prop()
   name: string;
 
@@ -18,7 +22,6 @@ export class User {
     length: 100,
     required: true,
     unique: true,
-    select: false,
   })
   password: string;
 }

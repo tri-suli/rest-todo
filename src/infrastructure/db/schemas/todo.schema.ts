@@ -4,7 +4,7 @@ import { User } from './user.schema';
 
 export type TodoDocument = Todo & Mongoose.Document;
 
-@Schema({ timestamps: true, id: true })
+@Schema({ timestamps: true })
 export class Todo {
   @Prop({
     type: Mongoose.Schema.Types.ObjectId,

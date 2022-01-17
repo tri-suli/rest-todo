@@ -12,7 +12,7 @@ export class UserService implements UserRepository {
   ) {}
 
   async findByEmail(email: string): Promise<User> {
-    return await this.userModel.findOne({ email }).exec();
+    return await this.userModel.findOne({ email }).select({}).exec();
   }
 
   async register(body: Register): Promise<User> {
